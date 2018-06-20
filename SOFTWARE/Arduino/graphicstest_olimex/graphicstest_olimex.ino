@@ -1,11 +1,18 @@
 /***************************************************
-  This is our GFX example for the Adafruit ILI9341 Breakout and Shield
+  This is an example made by Adafruit and modifed by Olimex for MOD-LCD2.8RTP
+  This demo was tested with Olimex MOD-LCD2.8RTP and ESP32-EVB and OLIMEXINO-2560.
+  The boards were connected via UEXT connector and cable.
+  
+  Make sure to establish proper hardware connections with your board.
+  The display requires SPI, the touschreen I2C. Refer to Board_Pinout.h.
+  
+  The original example is a GFX example for the Adafruit ILI9341 Breakout and Shield
   ----> http://www.adafruit.com/products/1651
 
-  Check out the links above for our tutorials and wiring diagrams
+  Check out the link above for Adafruit's tutorials and wiring diagrams
   These displays use SPI to communicate, 4 or 5 pins are required to
   interface (RST is optional)
-  Adafruit invests time and resources providing this open source code,
+  Adafruit invests time and resources providing the open source code,
   please support Adafruit and open-source hardware by purchasing
   products from Adafruit!
 
@@ -13,12 +20,19 @@
   MIT license, all text above must be included in any redistribution
  ****************************************************/
 
+ // In order to work you have to install Adafruit GFX Library
+ // To do so go to:
+ // Main menu --> Sketch --> Inlcude Librariy --> Manage Libraries...
+ // In the search box filter "Adafruit GFX Library" and install it
+ // Tested with version 1.2.3 of the library
 
+
+#include "Board_Pinout.h"
 #include "SPI.h"
 #include "Adafruit_GFX.h"
 #include "Adafruit_ILI9341.h"
 #include "Wire.h"
-#include <Adafruit_STMPE610.h>
+#include "Adafruit_STMPE610.h"
 
 // This is calibration data for the raw touch data to the screen coordinates
 #define TS_MINX 290
@@ -27,30 +41,8 @@
 #define TS_MAXY 7510
 #define TS_I2C_ADDRESS 0x4d
 
-/*
-// This is pinouts for ESP32-EVB
-#define TFT_DC 15
-#define TFT_CS 17
-#define TFT_MOSI 2
-#define TFT_MISO 15
-#define TFT_CLK 14
-//#define TFT_RST 33 */
-
-// This is pinouts for Olimexino 2560
-// Cut jumper SJ3
-// If display is connected to UEXT Connect p34 to p50 with a wire !!!
-
-#define TFT_DC 34
-#define TFT_CS 53
-#define TFT_MOSI 51
-#define TFT_MISO 50
-#define TFT_CLK 52
-#define TFT_BKL 0
-
 
 Adafruit_STMPE610 ts = Adafruit_STMPE610();
-
-
 
 // Size of the color selection boxes and the paintbrush size
 #define BOXSIZE 40
@@ -60,31 +52,22 @@ Adafruit_ILI9341 tft = Adafruit_ILI9341(TFT_CS, TFT_DC);
 uint8_t tp[5];
 
 void setup() {
-        // Power Up UEXT
-//   pinMode(LED_BUILTIN, OUTPUT);
-//   digitalWrite(LED_BUILTIN, HIGH);
+        // TODO: Power Up UEXT if 32U4
+
    delay(1000);
-//   digitalWrite(LED_BUILTIN, LOW);
-//   delay(500);
-  Serial.begin(115200);
-  Serial.println("ILI9341 Test!");
+   Serial.begin (115200);
+   while (!Serial);
+   Serial.print ("Demo started");
+
   tft.begin();
-  pinMode(TFT_DC, OUTPUT);
 
-pinMode(TFT_BKL, OUTPUT);
-digitalWrite(TFT_BKL, 0);
-  // Wire.begin();
    Wire.begin();
-
+   pinMode(TFT_DC, OUTPUT);
   // read diagnostics (optional but can help debug problems)
   //uint8_t x = tft.readcommand8(ILI9341_RDMODE);
    delay(1000);
 
-  tft.fillScreen(ILI9341_BLACK);
-  Serial.println("Touchscreen cleaned");
-  // make the color selection boxes
-
-ts.begin(TS_I2C_ADDRESS);
+   ts.begin(TS_I2C_ADDRESS);
 
 
 }
@@ -101,9 +84,8 @@ testFastLines(ILI9341_DARKGREY,ILI9341_DARKCYAN);
 
 // Print "current date and time"
 tft.setCursor(5,5);
- 
 tft.setTextColor(ILI9341_WHITE);  tft.setTextSize(2);
-tft.println("29-05-18       11:28"); //TODO: Print the real date and time
+tft.println("29-05-18      11:28"); //TODO: Print the real date and time
 
 
 // Print "room temperature"
@@ -205,7 +187,7 @@ while (1){
       p.y = map(p.y, TS_MINY, TS_MAXY, 0, tft.height());
       p.y = 320 - p.y;
 
-     // tft.fillCircle(p.x, p.y, 5, ILI9341_YELLOW);
+      //  tft.fillCircle(p.x, p.y, 5, ILI9341_YELLOW);
 
 
     if ((p.y > 250) && (p.y<300)){

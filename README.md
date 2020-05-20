@@ -5,11 +5,10 @@ Using MOD-LCD2.8RTP requires non-standard SPI for the display and I2C for the to
 
 UEXT pinout:
 
-|colum 1|column 2|
-|---|---|
-|1 - 3.3V |2 - GND|
-|3 - NOT USED|4 - NOT USED|
-|5 - SCL|6 - SDA| <--- I2C for touch
-|7 - D/C|8 - MOSI| <--- SPI MOSI sans MISO for display
-|9 - CLK|10 - CS| <--- SPI CLK/CS for display
-
+|UEXT column 1|UEXT column 2|Function|
+|---|---|---|
+|1 - 3.3V |2 - GND|Power pins|
+|3 - NOT USED|4 - NOT USED|UART pins not used|
+|5 - SCL|6 - SDA|I2C pins used for touch component|
+|7 - D/C|8 - MOSI|SPI pins sans MISO used for display|
+|9 - CLK|10 - CS|SPI CLK/CS for display|

@@ -1,5 +1,7 @@
 # MOD-LCD2.8RTP
-TFT COLOR LCD module with UEXT connector for ESP32-EVB
+TFT COLOR LCD module with [UEXT connector](https://www.olimex.com/Products/Modules/) for
+[ESP32-EVB](https://www.olimex.com/Products/IoT/ESP32/ESP32-EVB/open-source-hardware) and
+[ESP32-POE](https://www.olimex.com/Products/IoT/ESP32/ESP32-POE/open-source-hardware)
 
 **Using MOD-LCD2.8RTP requires non-standard SPI for the display and I2C for the touch screen** 
 

@@ -1,7 +1,13 @@
 #ifndef	_BOARD_PINOUT_H
 #define	_BOARD_PINOUT_H
 
-#if defined ESP32-EVB
+#if defined ESP32-PoE
+	// This is pinouts for ESP32-PoE
+	#define TFT_DC 15
+	#define TFT_CS 5
+	#define TFT_MOSI 2
+	#define TFT_CLK 14
+#elif defined ESP32-EVB
 	// This is pinouts for ESP32-EVB
 	#define TFT_DC 15
 	#define TFT_CS 17

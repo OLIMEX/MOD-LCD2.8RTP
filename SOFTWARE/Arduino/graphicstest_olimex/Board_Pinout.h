@@ -1,19 +1,19 @@
 #ifndef	_BOARD_PINOUT_H
 #define	_BOARD_PINOUT_H
 
-#if defined ESP32-PoE
-	// This is pinouts for ESP32-PoE
+#if (defined ARDUINO_ESP32_POE) || (defined ARDUINO_ESP32_POE_ISO)
+	// This is pinouts for ESP32-PoE(-ISO)
 	#define TFT_DC 15
 	#define TFT_CS 5
 	#define TFT_MOSI 2
 	#define TFT_CLK 14
-#elif defined ESP32-EVB
+#elif defined ARDUINO_ESP32_EVB
 	// This is pinouts for ESP32-EVB
 	#define TFT_DC 15
 	#define TFT_CS 17
 	#define TFT_MOSI 2
 	#define TFT_CLK 14
-#elif defined OLIMEXINO_2560
+#elif defined ARDUINO_AVR_OLIMEXINO_2560
 	// This is pinouts for Olimexino 2560
 	// Important!!! If using UEXT connector you need
 	// to UEXT Connect p34 to p50 with a wire !!!

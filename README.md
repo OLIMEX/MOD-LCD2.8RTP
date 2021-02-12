@@ -16,3 +16,5 @@ UEXT pinout:
 |5 - SCL|6 - SDA|I2C pins used for touch component|
 |7 - D/C|8 - MOSI|SPI pins sans MISO used for display|
 |9 - CLK|10 - CS|SPI CLK/CS for display|
+
+If you are using I2C, then the RX wire can also be used to control the brightness. This requires midfying the SJ2 jumper. Refer to the schematic around FET1.

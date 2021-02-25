@@ -32,6 +32,13 @@
 	#define TFT_MOSI 51
 	#define TFT_CLK 52
 	#define TFT_BKL 0
+#elif defined ARDUINO_OLIMEXINO_STM32F3
+  #define TFT_DC 12
+  #define TFT_CS 4
+  #define TFT_MOSI 11
+  #define TFT_CLK 13
+  #define TFT_MISO -1
+  #define TFT_RST -1
 #else
 	#error This demo does not support selected board.
 

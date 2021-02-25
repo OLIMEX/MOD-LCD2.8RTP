@@ -179,6 +179,7 @@ class Adafruit_ILI9341 : public Adafruit_GFX {
 #elif defined (__arm__)
         int32_t  _cs, _dc, _rst, _sclk, _mosi, _miso;
 #ifdef USE_FAST_PINIO
+        typedef volatile uint32_t RwReg;
         volatile RwReg *mosiport, *misoport, *clkport, *dcport, *csport;
         uint32_t  mosipinmask, misopinmask, clkpinmask, cspinmask, dcpinmask;
 #endif

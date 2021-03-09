@@ -1,6 +1,6 @@
-##Arduino example:
+##Arduino IDE example:
 
-Tested with Arduino boards with ATmega2560 and ESP32 boards (Olimex ESP32-EVB). Refer to the comments in the .ino sketch - make sure to download all the files (library and header files; and not just the .ino).
+Tested with Olimex boards - OLIMEXINO-2560, OLIMEXINO-STM32F3, and Olimex ESP32 boards (Olimex ESP32-EVB, ESP32-POE, ESP32-POE-ISO). Refer to the comments in the .ino sketch - make sure to download all the files (library and header files; and not just the .ino).
 
 If you use the demo with an ESP32 boards remember to prepare your Arduino IDE environment according to the arduino for ESP32 repository here: https://github.com/espressif/arduino-esp32#installation-instructions
 

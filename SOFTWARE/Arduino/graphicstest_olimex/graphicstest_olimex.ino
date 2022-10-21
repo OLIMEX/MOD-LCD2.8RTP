@@ -47,11 +47,11 @@ Adafruit_STMPE610 ts = Adafruit_STMPE610();
 // Size of the color selection boxes and the paintbrush size
 #define BOXSIZE 40
 
-#ifdef  ARDUINO_OLIMEXINO_STM32F3
 Adafruit_ILI9341 tft = Adafruit_ILI9341(TFT_CS, TFT_DC, TFT_MOSI, TFT_CLK, TFT_RST, TFT_MISO);
-#else
-Adafruit_ILI9341 tft = Adafruit_ILI9341(TFT_CS, TFT_DC);
-#endif
+
+//if there is problem with this consturctor for some boards try
+//#ifdef  ARDUINO_OLIMEXINO_STM32F3
+//Adafruit_ILI9341 tft = Adafruit_ILI9341(TFT_CS, TFT_DC);
 
 uint8_t tp[5];
 
@@ -65,7 +65,12 @@ void setup() {
 
   tft.begin();
 
-   Wire.begin();
+#if (defined ARDUINO_ESP32_WROVER_KIT) || (defined ARDUINO_ESP32_DEV)
+Wire.begin(18,23);
+#else
+Wire.begin();
+#endif
+
    pinMode(TFT_DC, OUTPUT);
   // read diagnostics (optional but can help debug problems)
   //uint8_t x = tft.readcommand8(ILI9341_RDMODE);

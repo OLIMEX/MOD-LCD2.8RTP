@@ -209,7 +209,8 @@ void setup()
   Serial.begin (115200);
   Wire.begin();
   pinMode(TFT_DC, OUTPUT);
-  tft.begin();
+  tft.begin();  // default SPI frequency 40MHz
+  //tft.begin(30000000);  // lowers SPI frequency to 30MHz if you use long UEXT cable (or UEXTx5)
   tft.fillScreen(ILI9341_WHITE);
   Draw_Frame ();
 }

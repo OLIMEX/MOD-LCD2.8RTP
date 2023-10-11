@@ -1,0 +1,4 @@
+(sym_lib_table
+  (lib (name MOD-LCD2.8RTP)(type Legacy)(uri ${KIPRJMOD}/MOD-LCD2.8RTP.lib)(options "")(descr ""))
+  (lib (name MOD-LCD2.8RTP_RevB-rescue)(type Legacy)(uri ${KIPRJMOD}/MOD-LCD2.8RTP_RevB-rescue.lib)(options "")(descr ""))
+)

@@ -1,5 +1,13 @@
 =========================================
-Changes between revision B and C
+Hardware changes in revision D
+=========================================
+
+1. Moved design to KiCad v.7.x
+2. Changed LCD with LCD-2.8in_BL-YT280S002
+3. Removed  mUEXT
+
+=========================================
+Hardware changes in revision C
 =========================================
 
 1. CON3 symbol changed - added symbol with pin <0>;
@@ -11,3 +19,9 @@ Changes between revision B and C
 7. CON1 renamed to LCD1; CON2 renamed to UEXT1; CON3 renamed to mUEXT1;
 8. Annotation cleared, the whole schematic was reannotated and the pcb was updated;
 9. Added CE sign.
+
+=========================================
+Hardware revision B
+=========================================
+
+Initial board release

@@ -1,3 +1,0 @@
-(sym_lib_table
- (lib (name MOD-LCD2.8RTP_Rev_C)(type Legacy)(uri ${KIPRJMOD}/MOD-LCD2.8RTP_Rev_C.lib)(options "")(descr ""))
-)

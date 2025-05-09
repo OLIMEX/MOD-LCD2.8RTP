@@ -2,9 +2,10 @@
 Hardware changes in revision D
 =========================================
 
-1. Moved design to KiCad v.7.x
-2. Changed LCD with LCD-2.8in_BL-YT280S002
-3. Removed  mUEXT
+1. Changed LCD with LCD-2.8in_BL-YT280S002;
+2. Major PCB changes due to the new LCD. Dimensions and mount holes kept the same for compatiblity reasons;
+3. Moved design to KiCad v.7.x;
+4. Removed  mUEXT.
 
 =========================================
 Hardware changes in revision C
